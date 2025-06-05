@@ -14,3 +14,5 @@ Numbers
 Special characters (@$!%*?&)
 
 Provides improvement suggestions for weak passwords
+
+![image alt](https://github.com/zales2004/Simple-Password-Strength-Checker/blob/main/Screenshot%202025-06-05%20105625.png?raw=true)
