@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Strength Checker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: #ffffff;
+            padding: 20px 25px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 2px solid #007BFF;
+        }
+        h2 {
+            text-align: center;
+            color: #007BFF;
+            margin-bottom: 15px;
+        }
+        .conditions {
+            font-size: 0.9em;
+            color: #555;
+            background-color: #eef6ff;
+            padding: 10px;
+            border-left: 4px solid #007BFF;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .conditions ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        input[type="password"] {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 2px solid #ccc;
+            transition: border-color 0.3s;
+            outline: none;
+        }
+        input[type="password"]:focus {
+            border-color: #007BFF;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: #fff;
+            border: 2px solid #007BFF;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-1px);
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #007BFF;
+            border-radius: 5px;
+        }
+        .result h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .result p {
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Password Strength Checker</h2>
+
+        <form method="POST">
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit">Check Strength</button>
+        </form>
+
+        {% if strength %}
+        <div class="result">
+            <h3>Strength: {{ strength }}</h3>
+            <p>{{ suggestions | safe }}</p>
+        </div>
+
+        <div class="conditions">
+            <strong>To create a strong password, include:</strong>
+            <ul>
+                <li>✅ At least 8 characters</li>
+                <li>✅ At least 1 uppercase letter (A-Z)</li>
+                <li>✅ At least 1 lowercase letter (a-z)</li>
+                <li>✅ At least 1 digit (0-9)</li>
+                <li>✅ At least 1 special character (@, $, !, %, *, ?, &)</li>
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
